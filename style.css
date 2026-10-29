@@ -1,0 +1,157 @@
+/* The app's palette (mobile/src/constants/brand.ts): cream ground, ink
+   green, gold for the tagline; dark mode is the app's navy family. */
+:root {
+  --bg: #F7F3E9;
+  --ink: #1B3A2F;
+  --text: #2A2724;
+  --muted: #5B7566;
+  --gold-text: #86653A;
+  --tint-gold: #F5EBD9;
+  --rule: #D9C9A3;
+  --chip: #FFFFFF;
+  --calligraphy: 'Aref Ruqaa', 'IBM Plex Sans Arabic', serif;
+  --body: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000B1A;
+    --ink: #EDE9DC;
+    --text: #EDE9DC;
+    --muted: #8FA396;
+    --gold-text: #D4AC77;
+    --tint-gold: #2A2214;
+    --rule: #3A4458;
+    --chip: #0F1B2D;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Arabic needs room for its marks above and below the line. */
+html[lang="ar"] body { line-height: 1.9; }
+
+a { color: var(--ink); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--gold-text); outline-offset: 3px; border-radius: 4px; }
+
+.email { overflow-wrap: anywhere; }
+
+.links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+/* ---- The coming-soon page ---- */
+
+body.soon {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 20px;
+  text-align: center;
+}
+.soon-main {
+  margin-block: auto;
+  padding-block: 56px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.name {
+  font-family: var(--calligraphy);
+  font-weight: 700;
+  font-size: clamp(56px, 16vw, 96px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+.name-small { font-size: 48px; }
+.latin {
+  margin: 6px 0 0;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rule { width: 56px; height: 1px; background: var(--rule); margin: 28px 0; }
+/* The logo grows with the name on bigger screens (112 on a phone, up to 152),
+   keeping the phone's balance: about a third of the name's width (owner's
+   pick, 5 Oct, after a measured check). */
+.logo { width: clamp(112px, 24vw, 152px); height: clamp(112px, 24vw, 152px); margin-bottom: 4px; }
+.tag { margin: 0; font-size: 18px; line-height: 1.7; color: var(--gold-text); }
+html[lang="ar"] .tag { font-size: 22px; line-height: 1.9; }
+.when { margin: 30px 0 0; font-size: 16px; }
+.soon-foot {
+  padding-block: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.soon-foot .mail { margin: 0; font-size: 16px; }
+.soon-foot .links a { color: var(--muted); }
+
+/* ---- The legal pages ---- */
+
+.top, main, .foot {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 16px;
+}
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.mark picture { display: flex; }
+.mark-logo { width: 40px; height: 40px; }
+.mark-ar { font-family: var(--calligraphy); font-weight: 700; font-size: 30px; line-height: 1.4; }
+.switch {
+  color: var(--muted);
+  font-size: 15px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--chip);
+}
+
+.legal h1, .legal h2 { color: var(--ink); line-height: 1.35; text-wrap: balance; }
+.legal { padding-block: 8px; }
+.legal h1 { font-size: 28px; margin: 0 0 4px; }
+.legal h2 { font-size: 18px; margin: 28px 0 8px; }
+.legal p { margin: 0 0 12px; }
+.updated { color: var(--muted); font-size: 15px; }
+.notice {
+  background: var(--tint-gold);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+}
+
+.foot {
+  padding-block: 28px 40px;
+  color: var(--muted);
+  font-size: 15px;
+  text-align: center;
+}
+.foot p { margin: 0 0 8px; }
+.foot .links a { color: var(--muted); }
